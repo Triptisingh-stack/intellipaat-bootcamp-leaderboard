@@ -1,25 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Intellipaat Bootcamp Leaderboard</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
 <div class="hero">
 
-<h1>🏆 Intellipaat Bootcamp</h1>
+  <div class="logo-area">
+    <h1>Intellipaat School of Technology</h1>
 
-<p>Learn • Compete • Grow</p>
+    <p class="tagline">
+      Code • Develop • Succeed
+    </p>
+  </div>
 
-<input
-id="searchEmail"
-placeholder="Enter Registered Email">
+  <div class="search-box">
+    <input
+      id="searchEmail"
+      placeholder="Enter Registered Email">
 
-<button onclick="findRank()">
-Find My Rank
-</button>
+    <button onclick="findRank()">
+      Find My Rank
+    </button>
+  </div>
 
 </div>
 
@@ -27,25 +24,20 @@ Find My Rank
 
 <div class="leaderboard">
 
-<h2>Leaderboard</h2>
+  <h2>🏆 Bootcamp Leaderboard</h2>
 
-<table>
+  <table>
 
-<thead>
-<tr>
-<th>Rank</th>
-<th>Name</th>
-<th>Badge</th>
-</tr>
-</thead>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Student Name</th>
+        <th>Badge</th>
+      </tr>
+    </thead>
 
-<tbody id="leaderboardBody"></tbody>
+    <tbody id="leaderboardBody"></tbody>
 
-</table>
+  </table>
 
 </div>
-
-<script src="script.js"></script>
-
-</body>
-</html>
