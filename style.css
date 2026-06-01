@@ -1,73 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:#f8f8fc;
-    color:#222;
-}
-
-/* HERO */
-
 .hero{
     background:linear-gradient(
         135deg,
-        #ff6b00,
-        #6f2dbd
+        #FF6B00,
+        #6F2DBD
     );
 
-    color:white;
     text-align:center;
+
     padding:60px 20px;
+
+    color:white;
 }
 
-.logo-area h1{
+.hero h1{
     font-size:42px;
     font-weight:800;
+    margin-bottom:10px;
 }
 
 .tagline{
-    margin-top:12px;
-    font-size:20px;
-    opacity:.95;
-    letter-spacing:1px;
+    font-size:18px;
+    opacity:.9;
+    margin-bottom:25px;
 }
 
-/* SEARCH */
+.bootcamp-title{
 
-.search-box{
-    margin-top:30px;
+    display:inline-block;
+
+    background:rgba(255,255,255,.15);
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    margin-bottom:30px;
+
+    backdrop-filter:blur(10px);
 }
 
-.search-box input{
+.search-container{
 
-    width:350px;
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
+.search-container input{
+
+    width:400px;
+
     max-width:90%;
 
-    padding:15px;
+    padding:16px 20px;
 
     border:none;
-    border-radius:12px;
+
+    border-radius:14px;
 
     font-size:16px;
+
+    outline:none;
 }
 
-.search-box button{
+.search-container button{
 
-    padding:15px 25px;
+    padding:16px 28px;
 
     border:none;
-    border-radius:12px;
 
-    margin-left:10px;
+    border-radius:14px;
 
     background:white;
-    color:#6f2dbd;
+
+    color:#6F2DBD;
 
     font-weight:700;
 
@@ -76,160 +88,23 @@ body{
     transition:.3s;
 }
 
-.search-box button:hover{
+.search-container button:hover{
+
     transform:translateY(-2px);
 }
 
-/* STUDENT CARD */
-
-.card{
+.leaderboard-section{
 
     width:90%;
-    max-width:600px;
 
-    margin:30px auto;
-
-    background:white;
-
-    border-radius:20px;
-
-    padding:25px;
-
-    text-align:center;
-
-    box-shadow:
-      0 8px 30px rgba(0,0,0,.08);
-}
-
-/* LEADERBOARD */
-
-.leaderboard{
-
-    width:90%;
     max-width:1100px;
 
     margin:40px auto;
 }
 
-.leaderboard h2{
+.leaderboard-section h2{
 
     margin-bottom:20px;
 
-    color:#6f2dbd;
-
-    font-size:32px;
-}
-
-/* TABLE */
-
-table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
-    background:white;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    box-shadow:
-      0 8px 30px rgba(0,0,0,.08);
-}
-
-thead{
-
-    background:
-    linear-gradient(
-      135deg,
-      #ff6b00,
-      #6f2dbd
-    );
-
-    color:white;
-}
-
-th{
-
-    padding:18px;
-
-    text-align:left;
-
-    font-size:16px;
-
-    font-weight:700;
-}
-
-td{
-
-    padding:18px;
-
-    text-align:left;
-
-    border-bottom:
-    1px solid #f0f0f0;
-}
-
-tbody tr:hover{
-
-    background:#faf7ff;
-}
-
-/* ALIGNMENT */
-
-th:first-child,
-td:first-child{
-
-    width:120px;
-}
-
-th:last-child,
-td:last-child{
-
-    width:220px;
-}
-
-/* HIGHLIGHT USER */
-
-.highlight{
-
-    background:#fff4db !important;
-
-    font-weight:700;
-
-    border-left:
-    5px solid #ff6b00;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    .logo-area h1{
-
-        font-size:28px;
-    }
-
-    .tagline{
-
-        font-size:16px;
-    }
-
-    table{
-
-        font-size:14px;
-    }
-
-    th,
-    td{
-
-        padding:12px;
-    }
-
-    .search-box button{
-
-        margin-top:10px;
-        margin-left:0;
-    }
+    color:#6F2DBD;
 }
