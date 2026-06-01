@@ -3,82 +3,177 @@ const API_URL =
 
 let students = [];
 
-async function loadLeaderboard(){
+async function loadLeaderboard() {
 
-  const response = await fetch(API_URL);
+    try {
 
-  students = await response.json();
+        const response = await fetch(API_URL);
 
-  const tbody =
-    document.getElementById("leaderboardBody");
+        if (!response.ok) {
+            throw new Error("Unable to fetch leaderboard");
+        }
 
-  tbody.innerHTML = "";
+        students = await response.json();
 
-  students.forEach(student=>{
+        const tbody =
+            document.getElementById("leaderboardBody");
 
-    tbody.innerHTML += `
-      <tr id="rank-${student.rank}">
-        <td>${student.rank}</td>
-        <td>${student.name}</td>
-        <td>${student.badge}</td>
-      </tr>
-    `;
-  });
+        tbody.innerHTML = "";
+
+        students.forEach(student => {
+
+            tbody.innerHTML += `
+
+            <tr id="rank-${student.rank}">
+
+                <td>🏅 #${student.rank}</td>
+
+                <td>${student.name}</td>
+
+                <td>${student.badge}</td>
+
+            </tr>
+
+            `;
+
+        });
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        document.getElementById(
+            "leaderboardBody"
+        ).innerHTML = `
+
+        <tr>
+            <td colspan="3">
+                Unable to load leaderboard.
+            </td>
+        </tr>
+
+        `;
+    }
 
 }
 
-function findRank(){
+function findRank() {
 
-  const email =
-    document.getElementById("searchEmail")
-      .value
-      .trim()
-      .toLowerCase();
+    const email =
+        document
+        .getElementById("searchEmail")
+        .value
+        .trim()
+        .toLowerCase();
 
-  const student = students.find(
-      s=>s.email.toLowerCase()===email
-  );
+    if (!email) {
 
-  if(!student){
+        alert(
+            "Please enter your registered email."
+        );
 
-    document.getElementById("studentCard")
-      .innerHTML =
-      "<div class='card'>Student not found</div>";
+        return;
+    }
 
-    return;
-  }
+    const student = students.find(
 
-  document.getElementById("studentCard")
-    .innerHTML = `
-      <div class="card">
+        s =>
+        s.email &&
+        s.email.toLowerCase() === email
 
-      <h2>${student.name}</h2>
-
-      <h1>#${student.rank}</h1>
-
-      <h3>${student.badge}</h3>
-
-      <p>Score: ${student.score}</p>
-
-      </div>
-    `;
-
-  document
-      .querySelectorAll("tr")
-      .forEach(r=>r.classList.remove("highlight"));
-
-  const row =
-    document.getElementById(
-      `rank-${student.rank}`
     );
 
-  row.classList.add("highlight");
+    const card =
+        document.getElementById(
+            "studentCard"
+        );
 
-  row.scrollIntoView({
-      behavior:"smooth",
-      block:"center"
-  });
+    if (!student) {
+
+        card.innerHTML = `
+
+        <div class="card">
+
+            <h2>
+                Student Not Found
+            </h2>
+
+            <p>
+                Please check your email and try again.
+            </p>
+
+        </div>
+
+        `;
+
+        return;
+    }
+
+    card.innerHTML = `
+
+    <div class="card">
+
+        <h2>${student.name}</h2>
+
+        <h1>
+            🏆 Rank #${student.rank}
+        </h1>
+
+        <h3>
+            ${student.badge}
+        </h3>
+
+        <p>
+            ⭐ Score: ${student.score}
+        </p>
+
+    </div>
+
+    `;
+
+    document
+        .querySelectorAll("tbody tr")
+        .forEach(row =>
+            row.classList.remove(
+                "highlight"
+            )
+        );
+
+    const row =
+        document.getElementById(
+            `rank-${student.rank}`
+        );
+
+    if (row) {
+
+        row.classList.add(
+            "highlight"
+        );
+
+        row.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "center"
+
+        });
+
+    }
 
 }
 
-loadLeaderboard();
+document
+.getElementById("searchEmail")
+.addEventListener("keypress", function(e){
+
+    if(e.key === "Enter"){
+
+        findRank();
+
+    }
+
+});
+
+window.onload = loadLeaderboard;
