@@ -1,43 +1,157 @@
-<div class="hero">
+<!DOCTYPE html>
+<html lang="en">
 
-  <div class="logo-area">
-    <h1>Intellipaat School of Technology</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intellipaat School of Technology | Bootcamp Leaderboard</title>
 
-    <p class="tagline">
-      Code • Develop • Succeed
-    </p>
-  </div>
+    <link rel="stylesheet" href="style.css">
 
-  <div class="search-box">
-    <input
-      id="searchEmail"
-      placeholder="Enter Registered Email">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <button onclick="findRank()">
-      Find My Rank
-    </button>
-  </div>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
 
-</div>
+<body>
 
-<div id="studentCard"></div>
+    <!-- HERO SECTION -->
 
-<div class="leaderboard">
+    <section class="hero">
 
-  <h2>🏆 Bootcamp Leaderboard</h2>
+        <div class="hero-content">
 
-  <table>
+            <div class="brand">
 
-    <thead>
-      <tr>
-        <th>Rank</th>
-        <th>Student Name</th>
-        <th>Badge</th>
-      </tr>
-    </thead>
+                <h1>
+                    🚀 Intellipaat School of Technology
+                </h1>
 
-    <tbody id="leaderboardBody"></tbody>
+                <p class="tagline">
+                    Code • Develop • Succeed
+                </p>
 
-  </table>
+            </div>
 
-</div>
+            <div class="bootcamp-badge">
+                🏆 Bootcamp Leaderboard
+            </div>
+
+            <p class="hero-description">
+                Track your performance, climb the rankings,
+                earn badges, and compete with fellow learners.
+            </p>
+
+            <div class="search-container">
+
+                <input type="email"
+                    id="searchEmail"
+                    placeholder="Enter your registered email">
+
+                <button onclick="findRank()">
+                    Find My Rank
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- STUDENT RESULT CARD -->
+
+    <section class="result-section">
+
+        <div id="studentCard"></div>
+
+    </section>
+
+    <!-- TOP INFO BAR -->
+
+    <section class="info-strip">
+
+        <div class="info-card">
+            🚀 Learn
+        </div>
+
+        <div class="info-card">
+            💻 Build
+        </div>
+
+        <div class="info-card">
+            🏆 Compete
+        </div>
+
+        <div class="info-card">
+            ⭐ Succeed
+        </div>
+
+    </section>
+
+    <!-- LEADERBOARD -->
+
+    <section class="leaderboard-section">
+
+        <div class="leaderboard-header">
+
+            <h2>
+                🏆 Bootcamp Rankings
+            </h2>
+
+            <p>
+                Rankings are updated automatically based on learner performance.
+            </p>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Rank</th>
+
+                        <th>Student Name</th>
+
+                        <th>Badge</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="leaderboardBody">
+
+                    <!-- Data loads here -->
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>
+            Intellipaat School of Technology
+        </h3>
+
+        <p>
+            Empowering Future Tech Leaders
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
